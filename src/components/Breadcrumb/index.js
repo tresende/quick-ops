@@ -3,7 +3,6 @@ import { Container, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
     root: {
-        fontSize: 16,
         color: '#51c1c3',
     },
     current: {

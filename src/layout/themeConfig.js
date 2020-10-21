@@ -8,7 +8,7 @@ const config = {
         },
     },
     layout: {
-        menuWidth: 200,
+        menuWidth: 96,
         color: '#053d4e',
     },
 };
