@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import Status from './Status';
+import Icon from './Icon';
 import Info from './Info';
+import Observation from './Observation';
+import Status from './Status';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -21,11 +23,11 @@ const Request = () => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Status />
-            <Info title="Ação" text="Pagamento realizado" />
-            <Info title="Valor" text="BRL 3.458,94" />
-            <Status />
-            <Status />
+            <Icon />
+            <Info title="Ação" subTitle="Despesa" text="Almoço com afiliado" />
+            <Info title="Valor" subTitle="Valor" text="BRL 3.458,94" />
+            <Observation text="Depositamos na conta 12345-32, agência 123, Banco Itaú." />
+            <Status text="Reprovado pois você está gastando demais da conta!" />
         </div>
     );
 };

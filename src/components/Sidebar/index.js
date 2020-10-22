@@ -1,18 +1,30 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import Status from './Status';
+import Value from './Value';
+import Balance from './Balance';
+import Summary from './Summary';
 
 const useStyles = makeStyles(() => ({
     root: {
         width: '100%',
-        height: '100vh',
         backgroundColor: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        padding: 16,
     },
 }));
 
 const Sidebar = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root} />
+        <div className={classes.root}>
+            <Status />
+            <Value />
+            <Balance />
+            <Summary />
+        </div>
     );
 };
 

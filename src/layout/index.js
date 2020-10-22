@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     },
     content: {
         flexGrow: 1,
-        padding: '64px 0 0 27px',
+        padding: '64px 0 0 24px',
     },
 }));
 

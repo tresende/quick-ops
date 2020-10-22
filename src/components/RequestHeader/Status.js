@@ -4,7 +4,7 @@ import { FaGraduationCap } from 'react-icons/fa';
 
 const useStyles = makeStyles(() => ({
     root: {
-        flex: 1,
+        flex: 2,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
     },
     text: {
         fontWeight: 'bold',
-        maxWidth: 240,
     },
 }));
 

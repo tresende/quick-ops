@@ -8,6 +8,9 @@ const useStyles = makeStyles(() => ({
 	root: {
 		flexGrow: 1,
 	},
+	sideBar: {
+		backgroundColor: 'white',
+	},
 	content: {
 		paddingTop: 16,
 		paddingRight: 32,
@@ -29,7 +32,7 @@ const Home = () => {
 					<RequestInfo />
 				</div>
 			</Grid>
-			<Grid item xs={12} sm={3}>
+			<Grid item xs={12} sm={3} className={classes.sideBar}>
 				<Sidebar />
 			</Grid>
 		</Grid>

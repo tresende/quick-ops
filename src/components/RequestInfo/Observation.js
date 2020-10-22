@@ -12,29 +12,28 @@ const useStyles = makeStyles(() => ({
         textAlign: 'left',
     },
     title: {
-        color: '#545b64',
+        fontSize: '.7rem',
+        color: '#d0d3d6',
     },
     text: {
-        fontSize: '1.2em',
-        fontWeight: 'bold',
+        fontSize: '.8rem',
     },
 }));
 
-const Info = ({ title, text }) => {
+const Observation = ({ text }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <div>
-                <div className={classes.title}>{title}</div>
+                <div className={classes.title}>OBSERVAÇÃO</div>
                 <div className={classes.text}>{text}</div>
             </div>
         </div>
     );
 };
 
-Info.propTypes = {
-    title: PropTypes.object.isRequired,
-    text: PropTypes.object.isRequired,
+Observation.propTypes = {
+    text: PropTypes.string,
 };
 
-export default Info;
+export default Observation;

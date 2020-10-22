@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
     root: {
-        flex: 1,
+        flex: 2,
         border: '2px solid #fafbfc',
         borderTop: 'none',
         borderBottom: 'none',
