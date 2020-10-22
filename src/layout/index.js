@@ -9,13 +9,19 @@ import Breadcrumb from '../components/Breadcrumb';
 import themeConfig from './themeConfig';
 import 'typeface-nunito-sans';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
     content: {
         flexGrow: 1,
         padding: '64px 0 0 24px',
+    },
+    [theme.breakpoints.down('sm')]: {
+        content: {
+            flexGrow: 1,
+            padding: '64px 16px',
+        },
     },
 }));
 

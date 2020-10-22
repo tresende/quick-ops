@@ -4,7 +4,7 @@ import RequestHeader from '../../components/RequestHeader';
 import RequestInfo from '../../components/RequestInfo';
 import Sidebar from '../../components/Sidebar';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 	},
@@ -14,6 +14,18 @@ const useStyles = makeStyles(() => ({
 	content: {
 		paddingTop: 16,
 		paddingRight: 32,
+	},
+	[theme.breakpoints.down('sm')]: {
+		root: {
+			borderRadius: 12,
+		},
+		content: {
+			paddingRight: 0,
+		},
+		sideBar: {
+			marginTop: 24,
+			borderRadius: 12,
+		},
 	},
 }));
 

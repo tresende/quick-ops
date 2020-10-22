@@ -4,6 +4,8 @@ const config = {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+        },
+        flexColumn: {
             flexDirection: 'column',
         },
     },

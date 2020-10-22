@@ -14,6 +14,12 @@ const useStyles = makeStyles((theme) => ({
     text: {
         fontWeight: 'bold',
     },
+    [theme.breakpoints.down('sm')]: {
+		root: {
+            border: 'none',
+			display: 'inherit',
+		},
+	},
 }));
 
 const Info = () => {

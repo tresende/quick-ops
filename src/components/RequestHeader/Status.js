@@ -12,13 +12,18 @@ const useStyles = makeStyles((theme) => ({
     text: {
         fontWeight: 'bold',
     },
+    [theme.breakpoints.down('sm')]: {
+		icon: {
+			display: 'none',
+		},
+	},
 }));
 
 const Status = () => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div><FaGraduationCap size="16" /></div>
+            <div className={classes.icon}><FaGraduationCap size="16" /></div>
             <div className={classes.text}>Esta solicitação será paga com o Budget de educação / confraternização.</div>
         </div>
     );

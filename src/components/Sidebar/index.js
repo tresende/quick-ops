@@ -5,7 +5,7 @@ import Value from './Value';
 import Balance from './Balance';
 import Summary from './Summary';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         backgroundColor: 'white',
@@ -13,6 +13,9 @@ const useStyles = makeStyles(() => ({
         alignItems: 'center',
         flexDirection: 'column',
         padding: 16,
+        [theme.breakpoints.down('sm')]: {
+			borderRadius: 12,
+        },
     },
 }));
 

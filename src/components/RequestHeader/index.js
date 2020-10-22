@@ -5,7 +5,7 @@ import Info from './Info';
 import CostCenter from './CostCenter';
 import Status from './Status';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         padding: 24,
@@ -20,6 +20,11 @@ const useStyles = makeStyles(() => ({
         flexDirection: 'row',
         alignItems: 'baseline',
     },
+    [theme.breakpoints.down('sm')]: {
+		requestBody: {
+			display: 'inherit',
+		},
+	},
 }));
 
 const RequestHeader = () => {

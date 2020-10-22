@@ -5,7 +5,7 @@ import Info from './Info';
 import Observation from './Observation';
 import Status from './Status';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         minHeight: 154,
@@ -16,11 +16,19 @@ const useStyles = makeStyles(() => ({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         textAlign: 'center',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            padding: 8,
+        },
     },
     infos: {
         flex: 4,
         display: 'flex',
         alignItems: 'baseline',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            flex: 1,
+        },
     },
 }));
 
