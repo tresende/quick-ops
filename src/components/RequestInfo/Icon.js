@@ -2,12 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { FaGraduationCap } from 'react-icons/fa';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...theme.mixins.center,
         flexDirection: 'column',
         textAlign: 'center',
     },
@@ -16,10 +14,7 @@ const useStyles = makeStyles(() => ({
         color: '#545b64',
     },
     icon: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
+        ...theme.mixins.center,
         width: 64,
         height: 64,
         backgroundColor: '#e6fff0',

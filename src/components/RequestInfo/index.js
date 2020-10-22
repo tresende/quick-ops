@@ -17,6 +17,11 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'space-evenly',
         textAlign: 'center',
     },
+    infos: {
+        flex: 4,
+        display: 'flex',
+        alignItems: 'baseline',
+    },
 }));
 
 const Request = () => {
@@ -24,10 +29,12 @@ const Request = () => {
     return (
         <div className={classes.root}>
             <Icon />
-            <Info title="Ação" subTitle="Despesa" text="Almoço com afiliado" />
-            <Info title="Valor" subTitle="Valor" text="BRL 3.458,94" />
-            <Observation text="Depositamos na conta 12345-32, agência 123, Banco Itaú." />
-            <Status text="Reprovado pois você está gastando demais da conta!" />
+            <div className={classes.infos}>
+                <Info title="Ação" subTitle="Despesa" text="Almoço com afiliado" />
+                <Info title="Valor" subTitle="Valor" text="BRL 3.458,94" />
+                <Observation text="Depositamos na conta 12345-32, agência 123, Banco Itaú." />
+                <Status text="Reprovado pois você está gastando demais da conta!" />
+            </div>
         </div>
     );
 };

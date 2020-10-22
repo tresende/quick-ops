@@ -6,16 +6,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         flex: 1,
         border: '2px solid #fafbfc',
         borderTop: 'none',
         borderBottom: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...theme.mixins.center,
         flexDirection: 'column',
+    },
+    header: {
+        fontSize: '.8rem',
+        fontWeight: 'bold',
+    },
+    hr: {
+        borderTop: '1px solid #f0f3f7',
     },
     tableHeader: {
         fontSize: '.7rem',
@@ -39,43 +44,47 @@ const useStyles = makeStyles(() => ({
 const Summary = () => {
     const classes = useStyles();
     return (
-        <Table size="small" aria-label="simple table">
-            <TableHead>
-                <TableRow>
-                    <TableCell className={classes.tableHeader}>Descrição</TableCell>
-                    <TableCell className={classes.tableHeader}>Valor</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                <TableRow>
-                    <TableCell className={classes.cell} scope="row">
-                        <div className={classes.type}>Despesas declaradas</div>
-                        <div className={classes.description}>Despesas declaradas pelo trooper</div>
-                    </TableCell>
-                    <TableCell className={classes.cell} align="right">
-                        <div className={classes.type}>BRL 1.147,13</div>
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell className={classes.cell} scope="row">
-                        <div className={classes.type}>Despesas declaradas</div>
-                        <div className={classes.description}>Despesas declaradas pelo trooper</div>
-                    </TableCell>
-                    <TableCell className={classes.cell} align="right">
-                        <div className={classes.type}>BRL 1.147,13</div>
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell className={classes.cell} scope="row">
-                        <div className={classes.type}>Despesas declaradas</div>
-                        <div className={classes.description}>Despesas declaradas pelo trooper</div>
-                    </TableCell>
-                    <TableCell className={classes.cell} align="right">
-                        <div className={classes.type}>BRL 1.147,13</div>
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
+        <div>
+            <span className={classes.header}>Extrato</span>
+            <hr className={classes.hr} />
+            <Table size="small" aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell className={classes.tableHeader}>Descrição</TableCell>
+                        <TableCell className={classes.tableHeader}>Valor</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell className={classes.cell} scope="row">
+                            <div className={classes.type}>Despesas declaradas</div>
+                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                        </TableCell>
+                        <TableCell className={classes.cell} align="right">
+                            <div className={classes.type}>BRL 1.147,13</div>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className={classes.cell} scope="row">
+                            <div className={classes.type}>Despesas declaradas</div>
+                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                        </TableCell>
+                        <TableCell className={classes.cell} align="right">
+                            <div className={classes.type}>BRL 1.147,13</div>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell className={classes.cell} scope="row">
+                            <div className={classes.type}>Despesas declaradas</div>
+                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                        </TableCell>
+                        <TableCell className={classes.cell} align="right">
+                            <div className={classes.type}>BRL 1.147,13</div>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </div>
     );
 };
 

@@ -18,6 +18,7 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'row',
+        alignItems: 'baseline',
     },
 }));
 

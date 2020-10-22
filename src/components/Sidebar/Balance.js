@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         display: 'flex',
@@ -30,9 +30,7 @@ const useStyles = makeStyles(() => ({
     },
     container: {
         flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...theme.mixins.center,
     },
     divider: {
         borderLeft: '1px solid #f0f3f7',

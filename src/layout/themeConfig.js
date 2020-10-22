@@ -1,4 +1,12 @@
 const config = {
+    mixins: {
+        center: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+        },
+    },
     typography: {
         fontFamily: '"Nunito Sans", "Roboto", "Arial", sans-serif',
     },

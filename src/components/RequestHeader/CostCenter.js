@@ -1,15 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
+        ...theme.mixins.center,
         flex: 2,
-        border: '2px solid #fafbfc',
+        height: 96,
+        border: '2px solid rgb(250 251 252 / .6)',
         borderTop: 'none',
         borderBottom: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         flexDirection: 'column',
     },
     text: {
