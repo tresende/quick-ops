@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import Title from './Title';
 import Info from './Info';
 import CostCenter from './CostCenter';
 import Status from './Status';
+import HeaderService from '../../services/HeaderService';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,19 +22,27 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'baseline',
     },
     [theme.breakpoints.down('sm')]: {
-		requestBody: {
-			display: 'inherit',
-		},
-	},
+        requestBody: {
+            display: 'inherit',
+        },
+    },
 }));
 
 const RequestHeader = () => {
+    const [headerData, setHeaderData] = useState({});
+    useEffect(() => {
+        const getInitialData = async () => {
+            const data = await HeaderService.getTimelineData();
+            setHeaderData(data);
+        };
+        getInitialData();
+    }, []);
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Title />
+            <Title text={headerData.title} />
             <div className={classes.requestBody}>
-                <Info />
+                <Info header={headerData} />
                 <CostCenter />
                 <Status />
             </div>

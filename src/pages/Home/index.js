@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import RequestHeader from '../../components/RequestHeader';
-import RequestInfo from '../../components/RequestInfo';
 import Sidebar from '../../components/Sidebar';
+import Timeline from './Timeline';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -36,12 +36,7 @@ const Home = () => {
 			<Grid item xs={12} sm={9}>
 				<div className={classes.content}>
 					<RequestHeader />
-					<RequestInfo />
-					<RequestInfo />
-					<RequestInfo />
-					<RequestInfo />
-					<RequestInfo />
-					<RequestInfo />
+					<Timeline />
 				</div>
 			</Grid>
 			<Grid item xs={12} sm={3} className={classes.sideBar}>

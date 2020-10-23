@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import orderReducer from './order';
-import themeReducer from './theme';
+import timelineReducer from './timeline';
 
 export default combineReducers({
-    orderReducer,
-    themeReducer,
+    timelineReducer,
 });

@@ -1,12 +1,12 @@
 const INITIAL_STATE = {
-    orders: [],
+    timeline: [],
 };
 const search = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'SET_FILTERED_DATA':
+        case 'GET_TIMELINE_DATA':
             return {
                 ...state,
-                orders: action.payload,
+                timeline: action.payload,
             };
         default:
             return state;

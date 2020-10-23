@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import { getTranslate, formatDate } from '../../services/Util';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -17,28 +19,55 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Info = () => {
+const Info = ({ header }) => {
+    const formatAmountOfPeople = (value) => {
+        if (!value) return '';
+        let term = 'Pessoa';
+        if (value > 1) term = `${term}s`;
+        return `${value} ${term}`;
+    };
+
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <div className={classes.keyValye}>
+                <span className={classes.key}>Nome</span>
+                <span className={classes.value}>{header?.collaborator?.name}</span>
+            </div>
+            <div className={classes.keyValye}>
+                <span className={classes.key}>Email</span>
+                <span className={classes.value}>{header?.collaborator?.email}</span>
+            </div>
+            <div className={classes.keyValye}>
                 <span className={classes.key}>Justificativa</span>
-                <span className={classes.value}>Reembolso referente a confraternização das equipes Backoffice / BI / Analytics.</span>
+                <span className={classes.value}>{header.justification}</span>
             </div>
             <div className={classes.keyValye}>
                 <span className={classes.key}>Finalidade</span>
-                <span className={classes.value}>Confraternização</span>
-            </div>
-            <div className={classes.keyValye}>
-                <span className={classes.key}>Quantidade</span>
-                <span className={classes.value}>33 Pessoas</span>
+                <span className={classes.value}>{getTranslate(header.purpose)}</span>
             </div>
             <div className={classes.keyValye}>
                 <span className={classes.key}>Projeto</span>
-                <span className={classes.value}> - </span>
+                <span className={classes.value}>{header?.project?.title}</span>
+            </div>
+            <div className={classes.keyValye}>
+                <span className={classes.key}>Data</span>
+                <span className={classes.value}>{formatDate(header?.accountabilityExtraInfo?.eventDate)}</span>
+            </div>
+            <div className={classes.keyValye}>
+                <span className={classes.key}>Quantidade de Pessoas</span>
+                <span className={classes.value}>{formatAmountOfPeople(header?.accountabilityExtraInfo?.amountOfPeople)}</span>
+            </div>
+            <div className={classes.keyValye}>
+                <span className={classes.key}>Incluir Café da Manha</span>
+                <span className={classes.value}>{formatAmountOfPeople(header?.accountabilityExtraInfo?.budgetForBreakfast)}</span>
             </div>
         </div>
     );
+};
+
+Info.propTypes = {
+    header: PropTypes.object.isRequired,
 };
 
 export default Info;
