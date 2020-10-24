@@ -6,8 +6,12 @@ const TimelineService = {
     getTimelineData: () => async (dispatch) => {
         const response = await fetch(`${BASE_API_URL}/timeline`);
         const data = await response.json();
-        dispatch(getTimelineData(data.content));
-        return data.content;
+        let timeLine = data.content;
+        if (timeLine) {
+            timeLine = timeLine.sort((a, b) => a.cardDate + b.cardDate);
+        }
+        dispatch(getTimelineData(timeLine));
+        return timeLine;
     },
 };
 

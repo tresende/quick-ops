@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
-import { FaGraduationCap } from 'react-icons/fa';
+import { FaAsterisk } from 'react-icons/fa';
+import { formatDate } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,19 +19,29 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.center,
         width: 64,
         height: 64,
-        backgroundColor: '#e6fff0',
         borderRadius: '50%',
     },
 }));
 
-const Status = () => {
+const Icon = ({ request, icon, color }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div className={classes.icon}><FaGraduationCap color="#00c76a" size="24" /></div>
-            <div className={classes.text}>21/05/2019</div>
+            <div style={{ backgroundColor: color }} className={classes.icon}>{icon}</div>
+            <div className={classes.text}>{formatDate(request.cardDate)}</div>
         </div>
     );
 };
 
-export default Status;
+Icon.propTypes = {
+    request: PropTypes.object.isRequired,
+    color: PropTypes.string,
+    icon: PropTypes.object,
+};
+
+Icon.defaultProps = {
+    icon: <FaAsterisk color="#C8BCED" size={24} />,
+    color: '#efebf9',
+};
+
+export default Icon;

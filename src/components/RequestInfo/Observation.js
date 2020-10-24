@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.center,
         flexDirection: 'column',
         textAlign: 'left',
+        alignItems: 'flex-start',
     },
     title: {
         fontSize: '.7rem',

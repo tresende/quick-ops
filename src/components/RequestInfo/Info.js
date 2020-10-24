@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.center,
         flexDirection: 'column',
         textAlign: 'left',
+        alignItems: 'flex-start',
     },
     title: {
         color: '#d0d3d6',
@@ -20,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Info = ({ title, subTitle, text }) => {
+const Info = ({ title, type, text }) => {
+    if (!type) { return null; }
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <div>
                 <div className={classes.title}>{title}</div>
-                <div className={classes.text}>{subTitle}</div>
+                <div className={classes.text}>{type}</div>
                 <div className={classes.info}>{text}</div>
             </div>
         </div>
@@ -34,8 +36,8 @@ const Info = ({ title, subTitle, text }) => {
 };
 
 Info.propTypes = {
-    title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    type: PropTypes.string,
     text: PropTypes.string,
 };
 

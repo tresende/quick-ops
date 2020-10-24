@@ -15,7 +15,7 @@ const Timeline = ({ getTimelineData, timeline }) => {
     return (
         <>
             {
-                timeline.map((item) => <RequestInfo key={item.id} />)
+                timeline.map((item) => <RequestInfo key={item.id} request={item} />)
             }
         </>
     );

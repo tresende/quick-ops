@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.center,
         flexDirection: 'column',
         textAlign: 'left',
+        alignItems: 'flex-start',
     },
     title: {
         fontSize: '.7rem',
@@ -18,15 +19,22 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '.8rem',
     },
     badge: {
-        border: '1px solid #d6342c',
-        backgroundColor: '#fbeaea',
         textAlign: 'center',
         display: 'inline-block',
         borderRadius: 12,
         fontSize: '.6rem',
         fontWeight: 'bold',
-        color: '#d6342c',
         padding: '0 1em',
+    },
+    success: {
+        border: '1px solid #03a046',
+        backgroundColor: '#e6fff0',
+        color: '#03a046',
+    },
+    error: {
+        border: '1px solid #d6342c',
+        backgroundColor: '#fbeaea',
+        color: '#d6342c',
     },
 }));
 
