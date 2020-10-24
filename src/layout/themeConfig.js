@@ -23,9 +23,7 @@ const config = {
     layout: {
         menuWidth: 88,
         color: '#053d4e',
-    },
-    formContainer: {
-        marginBottom: 8,
+        defaultBorderRadius: 8,
     },
 };
 

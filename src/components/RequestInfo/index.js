@@ -9,8 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         minHeight: 154,
-        borderRadius: 12,
-        marginTop: 24,
+        borderRadius: theme.layout.defaultBorderRadius,
         backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',

@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         padding: 24,
-        borderRadius: 12,
+        borderRadius: theme.layout.defaultBorderRadius,
         color: 'white',
         fontSize: '0.8rem',
         backgroundImage: 'linear-gradient(to right, #00d7ce 3%, #00c5fc)',
