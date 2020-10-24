@@ -8,6 +8,9 @@ const config = {
         flexColumn: {
             flexDirection: 'column',
         },
+        formContainer: {
+            marginBottom: 8,
+        },
     },
     typography: {
         fontFamily: '"Nunito Sans", "Roboto", "Arial", sans-serif',
@@ -20,6 +23,9 @@ const config = {
     layout: {
         menuWidth: 88,
         color: '#053d4e',
+    },
+    formContainer: {
+        marginBottom: 8,
     },
 };
 

@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { getTranslate, formatDate } from '../../services/Util';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         flex: 3,
+        borderRight: '2px solid rgb(250 251 252 / .6)',
     },
     keyValye: {
         display: 'flex',
+        ...theme.mixins.formContainer,
     },
     key: {
-        minWidth: 72,
+        minWidth: 136,
     },
     value: {
         fontWeight: 'bold',
