@@ -6,7 +6,9 @@ import { getTranslate, formatDate } from '../../services/Util';
 const useStyles = makeStyles((theme) => ({
     root: {
         flex: 3,
-        borderRight: '2px solid rgb(250 251 252 / .6)',
+        [theme.breakpoints.up('lg')]: {
+            borderRight: '2px solid rgb(250 251 252 / .6)',
+        },
     },
     keyValye: {
         display: 'flex',

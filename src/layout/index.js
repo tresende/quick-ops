@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: '64px 0 0 24px',
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
         content: {
             flexGrow: 1,
             padding: '64px 16px',

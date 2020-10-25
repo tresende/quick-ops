@@ -5,14 +5,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     drawer: {
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('lg')]: {
             width: theme.layout.menuWidth,
             flexShrink: 0,
         },
     },
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
+        [theme.breakpoints.up('lg')]: {
         width: theme.layout.menuWidth,
+        },
         border: 0,
         backgroundColor: theme.layout.color,
     },

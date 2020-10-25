@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         textAlign: 'center',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             padding: 8,
         },
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'baseline',
         justifyContent: 'space-between',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
             flex: 1,
         },

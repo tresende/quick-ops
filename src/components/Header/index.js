@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.layout.color,
     minHeight: 48,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('lg')]: {
       width: `calc(100% - ${theme.layout.menuWidth}px)`,
       marginLeft: theme.layout.menuWidth,
     },

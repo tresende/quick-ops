@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '.5em',
         borderRadius: 5,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
         root: {
             border: 'none',
             display: 'inherit',

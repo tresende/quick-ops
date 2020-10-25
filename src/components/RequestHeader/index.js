@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         alignItems: 'stretch',
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
         requestBody: {
             display: 'inherit',
         },

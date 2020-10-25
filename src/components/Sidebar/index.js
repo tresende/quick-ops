@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         flexDirection: 'column',
         padding: 16,
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             borderRadius: 12,
         },
     },
