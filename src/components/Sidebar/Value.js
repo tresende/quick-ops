@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import { formatCurrency } from '../../services/Util';
 
 const useStyles = makeStyles(() => ({
     root: {
-        marginTop: 24,
-        width: '80%',
         height: 88,
         borderRadius: 6,
         display: 'flex',
@@ -22,14 +22,18 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Status = () => {
+const Value = ({ data }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div className={classes.title}>VALOR A RECEBER</div>
-            <div className={classes.subTitle}>-</div>
+            <div className={classes.title}>SALDO</div>
+            <div className={classes.subTitle}>{formatCurrency(data.received - data.declared, data.currency.code)}</div>
         </div>
     );
 };
 
-export default Status;
+Value.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Value;

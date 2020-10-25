@@ -5,7 +5,6 @@ import { FaEdit } from 'react-icons/fa';
 
 const useStyles = makeStyles(() => ({
     root: {
-        flex: 1,
         display: 'flex',
         fontWeight: 'bold',
         justifyContent: 'space-between',

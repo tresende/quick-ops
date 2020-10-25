@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import { FaFileAlt as Icon } from 'react-icons/fa';
+import { FaReceipt as Icon } from 'react-icons/fa';
 
 const useStyles = makeStyles((theme) => ({
     root: {

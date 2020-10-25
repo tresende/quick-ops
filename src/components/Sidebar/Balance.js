@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import { formatCurrency } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Status = () => {
+const Balance = ({ data }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -46,7 +48,7 @@ const Status = () => {
                 <div className={classes.icon}><FaArrowUp color="#d0d3d6" size="12" /></div>
                 <div>
                     <div className={classes.title}>Gastou</div>
-                    <div className={classes.value}>BRL 1.147,13</div>
+                    <div className={classes.value}>{formatCurrency(data.declared, data.currency.code)}</div>
                 </div>
             </div>
             <div className={classes.divider} />
@@ -54,11 +56,15 @@ const Status = () => {
                 <div className={classes.icon}><FaArrowDown color="#d0d3d6" size="12" /></div>
                 <div>
                     <div className={classes.title}>Recebeu</div>
-                    <div className={classes.value}>BRL 00,00</div>
+                    <div className={classes.value}>{formatCurrency(data.received, data.currency.code)}</div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Status;
+Balance.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Balance;

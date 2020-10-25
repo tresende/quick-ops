@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import { getTranslate } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flex: 1,
         ...theme.mixins.center,
         flexDirection: 'column',
         textAlign: 'left',
@@ -26,33 +26,41 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold',
         padding: '0 1em',
     },
-    success: {
+    SUCCESS: {
         border: '1px solid #03a046',
         backgroundColor: '#e6fff0',
         color: '#03a046',
     },
-    error: {
+    ERROR: {
         border: '1px solid #d6342c',
         backgroundColor: '#fbeaea',
         color: '#d6342c',
     },
+    PENDING: {
+        border: '1px solid #1067ba',
+        backgroundColor: '#e9f0fd',
+        color: '#1067ba',
+    },
 }));
 
-const Status = ({ text }) => {
+const Status = ({ request }) => {
     const classes = useStyles();
+    if (!request.status) { return null; }
+
+    const statusClass = [classes.badge, classes[request.status]].join(' ');
+
     return (
         <div className={classes.root}>
             <div>
                 <div className={classes.title}>Status</div>
-                <div className={classes.badge}>Aprovado</div>
-                <div className={classes.text}>{text}</div>
+                <div className={statusClass}>{getTranslate(request.status)}</div>
             </div>
         </div>
     );
 };
 
 Status.propTypes = {
-    text: PropTypes.string,
+    request: PropTypes.object.isRequired,
 };
 
 export default Status;

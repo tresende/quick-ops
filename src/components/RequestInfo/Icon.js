@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
-import { FaAsterisk } from 'react-icons/fa';
+import { FaAsterisk, FaConciergeBell, FaUsers } from 'react-icons/fa';
 import { formatDate } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,11 +23,28 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Icon = ({ request, icon, color }) => {
+const Icon = ({ request }) => {
+    const size = 24;
+    const configMap = {
+        EVALUATION: {
+            color: '#efebf9',
+            icon: <FaUsers color="#C8BCED" size={size} />,
+        },
+        EXPENSE: {
+            type: 'Hotel',
+            color: '#E9F0FD',
+            icon: <FaConciergeBell color="#1067ba" size={size} />,
+        },
+        DEFAULT: {
+            icon: <FaAsterisk color="#C8BCED" size={24} />,
+            color: '#efebf9',
+        },
+    };
+    const config = configMap[request.cardType] || configMap.DEFAULT;
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div style={{ backgroundColor: color }} className={classes.icon}>{icon}</div>
+            <div style={{ backgroundColor: config.color }} className={classes.icon}>{config.icon}</div>
             <div className={classes.text}>{formatDate(request.cardDate)}</div>
         </div>
     );
@@ -35,13 +52,6 @@ const Icon = ({ request, icon, color }) => {
 
 Icon.propTypes = {
     request: PropTypes.object.isRequired,
-    color: PropTypes.string,
-    icon: PropTypes.object,
-};
-
-Icon.defaultProps = {
-    icon: <FaAsterisk color="#C8BCED" size={24} />,
-    color: '#efebf9',
 };
 
 export default Icon;

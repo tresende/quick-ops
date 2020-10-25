@@ -12,9 +12,15 @@ const formatDate = (value) => {
     return new Intl.DateTimeFormat(getCurrentLanguage()).format(new Date(value));
 };
 
+const formatCurrency = (number, currency) => {
+    if (!number && number !== 0) return '';
+    return new Intl.NumberFormat(getCurrentLanguage(), { style: 'currency', currency }).format(number);
+};
+
 const getTranslate = (key) => ptBR[key];
 
 export {
     getTranslate,
     formatDate,
+    formatCurrency,
 };

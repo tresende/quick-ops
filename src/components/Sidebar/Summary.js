@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core';
+import { formatCurrency } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flex: 1,
         border: '2px solid #fafbfc',
         borderTop: 'none',
         borderBottom: 'none',
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     type: {
         fontWeight: 'bold',
         color: '#053d4e',
-        fontSize: '.8rem',
+        fontSize: '.7rem',
     },
     description: {
         color: '#9ea4ac',
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Summary = () => {
+const Summary = ({ data }) => {
     const classes = useStyles();
     return (
         <div>
@@ -61,31 +62,35 @@ const Summary = () => {
                             <div className={classes.description}>Despesas declaradas pelo trooper</div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
-                            <div className={classes.type}>BRL 1.147,13</div>
+                            <div className={classes.type}>{formatCurrency(data.declared, data.currency.code)}</div>
                         </TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell className={classes.cell} scope="row">
-                            <div className={classes.type}>Despesas declaradas</div>
-                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                            <div className={classes.type}>Despesas aprovadas</div>
+                            <div className={classes.description}>Despesas declaradas pelo financeiro</div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
-                            <div className={classes.type}>BRL 1.147,13</div>
+                        <div className={classes.type}>{formatCurrency(data.approved, data.currency.code)}</div>
                         </TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell className={classes.cell} scope="row">
-                            <div className={classes.type}>Despesas declaradas</div>
-                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                            <div className={classes.type}>Despesas realizado</div>
+                            <div className={classes.description}>Despesas realizado pelo financeiro</div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
-                            <div className={classes.type}>BRL 1.147,13</div>
+                            <div className={classes.type}>{formatCurrency(data.received, data.currency.code)}</div>
                         </TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
         </div>
     );
+};
+
+Summary.propTypes = {
+    data: PropTypes.object.isRequired,
 };
 
 export default Summary;

@@ -13,6 +13,31 @@ const TimelineService = {
         dispatch(getTimelineData(timeLine));
         return timeLine;
     },
+
+    formatTypeMessage: (request) => {
+        switch (request.cardType) {
+            case 'EXPENSE':
+                return 'Hotel';
+            case 'ACCOUNTABILITY_SUBMITTED':
+            case 'ACCOUNTABILITY_CREATED':
+                return `Solicitação concluída por ${request?.author?.name}`;
+            case 'EVALUATION':
+                return `Aprovação da solicitação por ${request?.author?.name}`;
+            default:
+                return '';
+        }
+    },
+
+    formatSummaryText: (request) => {
+        switch (request.cardType) {
+            case 'EXPENSE':
+                return 'Ver Recibo';
+            case 'EVALUATION':
+                return 'Ver Aprovações';
+            default:
+                return '';
+        }
+    },
 };
 
 export default TimelineService;
