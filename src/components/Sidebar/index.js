@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import SidebarSerivce from '../../services/SidebarService';
 import Status from './Status';
 import Card from './Card';
+import LoadingService from '../../services/LoadingSerivce';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,12 +21,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Sidebar = () => {
+const Sidebar = ({ addLoadingItem, removeLoadingItem }) => {
     const [sidebarData, setSidebarData] = useState([]);
     useEffect(() => {
         const getInitialData = async () => {
+            const id = addLoadingItem();
             const data = await SidebarSerivce.getSidebarData();
             setSidebarData(data);
+            removeLoadingItem(id);
         };
         getInitialData();
     }, []);
@@ -38,4 +43,13 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+Sidebar.propTypes = {
+    addLoadingItem: PropTypes.func.isRequired,
+    removeLoadingItem: PropTypes.func.isRequired,
+};
+const mapDispatchToProps = (dispatch) => ({
+    addLoadingItem: () => dispatch(LoadingService.addLoadingItem()),
+    removeLoadingItem: (id) => dispatch(LoadingService.removeLoadingItem(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Sidebar);
