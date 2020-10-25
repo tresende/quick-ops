@@ -35,7 +35,7 @@ const TimelineService = {
             case 'EVALUATION':
                 return 'Ver Aprovações';
             default:
-                return '';
+                return null;
         }
     },
 };

@@ -23,33 +23,31 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
     },
+    iconContainerReverse: {
+        flexDirection: 'row-reverse',
+    },
 }));
 
 const Summary = ({ request }) => {
-    const classes = useStyles();
     const text = TimelineService.formatSummaryText(request);
+    if (text === null) { return null; }
+    const classes = useStyles();
+    let icon = (<FaReceipt size={12} />);
+    const iconClasses = [classes.iconContainer];
+    if (request.cardType === 'EVALUATION') {
+        icon = (<FaChevronDown size={12} />);
+        iconClasses.push(classes.iconContainerReverse);
+    }
     return (
         <div className={classes.root}>
             <div>
                 <div>
-                    {request.cardType === 'EXPENSE'
-                        && (
-                            <div className={classes.iconContainer}>
-                                <FaReceipt size={12} />
-                                <a className={classes.link} href="/">
-                                    {text}
-                                </a>
-                            </div>
-                        )}
-                    {request.cardType === 'EVALUATION'
-                        && (
-                            <div className={classes.iconContainer}>
-                                <a className={classes.link} href="/">
-                                    {text}
-                                </a>
-                                <FaChevronDown size={10} />
-                            </div>
-                        )}
+                    <div className={iconClasses.join(' ')}>
+                        {icon}
+                        <a className={classes.link} href="/">
+                            {text}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
