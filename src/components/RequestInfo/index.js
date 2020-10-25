@@ -10,11 +10,7 @@ import Summary from './Summary';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
-        minHeight: 154,
-        borderRadius: theme.layout.defaultBorderRadius,
-        marginBottom: 16,
-        backgroundColor: 'white',
+        ...theme.mixins.card,
         display: 'flex',
         paddingRight: 24,
         alignItems: 'center',

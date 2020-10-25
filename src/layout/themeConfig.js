@@ -11,6 +11,13 @@ const config = {
         formContainer: {
             marginBottom: 8,
         },
+        card: {
+            width: '100%',
+            minHeight: 154,
+            borderRadius: 8,
+            marginBottom: 16,
+            backgroundColor: 'white',
+        },
     },
     typography: {
         fontFamily: '"Nunito Sans", "Roboto", "Arial", sans-serif',

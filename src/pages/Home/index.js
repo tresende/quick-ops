@@ -3,7 +3,8 @@ import { Grid, makeStyles } from '@material-ui/core';
 import RequestHeader from '../../components/RequestHeader';
 import Sidebar from '../../components/Sidebar';
 import Timeline from './Timeline';
-import AddRequest from './AddRequest';
+import AddRequestButton from './AddRequestButton';
+import RequestForm from '../../components/RequestForm';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -37,7 +38,8 @@ const Home = () => {
 			<Grid item xs={12} lg={9}>
 				<div className={classes.content}>
 					<RequestHeader />
-					<AddRequest />
+					<AddRequestButton />
+					<RequestForm />
 					<Timeline />
 				</div>
 			</Grid>
