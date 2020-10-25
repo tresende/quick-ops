@@ -27,14 +27,12 @@ const Sidebar = () => {
         };
         getInitialData();
     }, []);
-    console.log(sidebarData);
-
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Status />
             {
-                sidebarData.map(((data) => (<Card key={data.id} data={data} />)))
+                sidebarData.map(((data, index) => (<Card key={index} data={data} />)))
             }
         </div>
     );

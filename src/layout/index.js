@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
+import Loading from '../components/Loading';
 import Breadcrumb from '../components/Breadcrumb';
 import themeConfig from './themeConfig';
 import 'typeface-nunito-sans';
@@ -32,6 +33,7 @@ const Layout = (props) => {
     return (
         <ThemeProvider theme={mainTheme}>
             <CssBaseline />
+            <Loading />
             <div className={classes.root}>
                 <Header />
                 <Menu />

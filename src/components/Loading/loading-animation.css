@@ -1,0 +1,12 @@
+.loading {
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+    -prefix-animation: slide 1s ease 3.5s forwards;
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

@@ -14,13 +14,19 @@ const formatDate = (value) => {
 
 const formatCurrency = (number, currency) => {
     if (!number && number !== 0) return '';
-    return new Intl.NumberFormat(getCurrentLanguage(), { style: 'currency', currency }).format(number);
+    return new Intl.NumberFormat(getCurrentLanguage(), {
+        style: 'currency',
+        currency,
+    }).format(number);
 };
 
 const getTranslate = (key) => ptBR[key];
+
+const generateUniqueId = () => Math.random().toString(36).substr(2, 9);
 
 export {
     getTranslate,
     formatDate,
     formatCurrency,
+    generateUniqueId,
 };
