@@ -1,4 +1,10 @@
 {
     "FRATERNIZATION": "Confraternização",
-    "PENDING": "Pendente"
+    "PENDING": "Pendente",
+    "hotel-fee": "Estadia",
+    "food": "Alimentação",
+    "transport": "transporte",
+    "BRL": "Real",
+    "USD": "Dolar",
+    "MXN": "Peso Mexicano"
 }

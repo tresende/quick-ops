@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import RequestHeader from '../../components/RequestHeader';
 import Sidebar from '../../components/Sidebar';
@@ -33,13 +33,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
 	const classes = useStyles();
+	const [showForm, setShowForm] = useState(false);
 	return (
 		<Grid container>
 			<Grid item xs={12} lg={9}>
 				<div className={classes.content}>
 					<RequestHeader />
-					<AddRequestButton />
-					<RequestForm />
+					<AddRequestButton onClick={() => setShowForm(true)} />
+					<RequestForm show={showForm} onCancel={() => setShowForm(false)} />
 					<Timeline />
 				</div>
 			</Grid>

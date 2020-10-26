@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FaQuestionCircle, FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaFilter } from 'react-icons/fa';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flex: 1,
-        padding: 24,
+        flex: 3,
+        padding: '16px 16px 0 0',
+        marginBottom: 8,
     },
     title: {
         color: '#353a40',
         fontWeight: 'bold',
     },
-    titleContainer: {
+    textIconContainer: {
         display: 'flex',
         alignItems: 'center',
         minHeight: 20,
@@ -19,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         color: '#d0d3d6',
         marginLeft: '.3rem',
+        marginRight: '.3rem',
         cursor: 'pointer',
     },
     formContainer: {
-        minHeight: 200,
-        backgroundColor: 'white',
-        border: '1px dashed #dfe2df',
+        backgroundColor: '#fafbfc',
+        padding: '1rem',
+        border: '1px solid #dfe2df',
         ...theme.mixins.center,
         flexDirection: 'column',
         borderRadius: theme.layout.defaultBorderRadius,
@@ -32,16 +34,13 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: 'white',
         border: '1px solid #dfe2e6',
-        height: 48,
-        marginTop: 24,
-        borderRadius: theme.layout.defaultBorderRadius,
+        height: 36,
+        borderRadius: 4,
+        display: 'flex',
+        alignItems: 'center',
     },
     inputFile: {
         display: 'none',
-    },
-    help: {
-        color: '#848a91',
-        fontSize: '.7rem',
     },
 }));
 
@@ -79,18 +78,18 @@ const InputFile = () => {
 
     return (
         <div className={classes.root}>
-            <div className={classes.titleContainer}>
-                <div className={classes.title}>Recibo, cupom ou nota fiscal*</div>
-                <FaQuestionCircle size="10" className={classes.icon} />
-            </div>
             <div className={classes.formContainer}>
+                <div className={classes.title}>Envie o comprovante</div>
+                <small className={classes.subtitle}>Você pode inserir nos formatos PNG, JPG, ou PDF. Tamanho máx 10MB</small>
                 <input accept=".jpg,.jpeg,.png" onChange={onInputFileChange} ref={inputFileRef} className={classes.inputFile} type="file" />
-                <div className={classes.titleContainer}>
+                <div className={classes.textIconContainer}>
                     {renderFileName()}
                 </div>
-                <button type="button" onClick={openInputFile} className={classes.button}>Selecione um arquivo do seu computador</button>
+                <button type="button" onClick={openInputFile} className={classes.button}>
+                    <FaFilter className={classes.icon} onClick={resetInputFile} size="10" />
+                    Escolher Arquivo
+                </button>
             </div>
-            <span className={classes.help}>A imagem deve estar no formato JPG ou PNG.</span>
         </div>
     );
 };

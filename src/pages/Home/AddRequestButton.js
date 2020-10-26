@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { FaReceipt as Icon } from 'react-icons/fa';
 
@@ -23,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddRequest = () => {
+const AddRequestButton = ({ onClick }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <button className={classes.button} type="button">
+            <button onClick={onClick} className={classes.button} type="button">
                 <Icon className={classes.icon} size="12" />
                 <span>Adicionar Despesa</span>
             </button>
@@ -35,4 +36,8 @@ const AddRequest = () => {
     );
 };
 
-export default AddRequest;
+AddRequestButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
+
+export default AddRequestButton;
