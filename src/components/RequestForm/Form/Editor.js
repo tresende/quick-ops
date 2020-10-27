@@ -29,7 +29,16 @@ const Editor = ({ onChange, label, size, type, values }) => {
     const width = `${size}%`;
     const classes = useStyles(width);
 
-    const onValueChanged = (value) => onChange(value);
+    const onValueChanged = (value) => {
+        let text = value;
+        if (type === 'number') {
+            text = parseFloat(value);
+        }
+        if (type === 'date') {
+            text = new Date(value).getTime() / 1000;
+        }
+        onChange(text);
+    };
 
     const createEditor = () => {
         switch (type) {
@@ -52,7 +61,7 @@ const Editor = ({ onChange, label, size, type, values }) => {
             default:
                 return (
                     <TextField
-                      onChange={(e) => onValueChanged(e.target.value)}
+                      onChange={(e) => onValueChanged(e.target.value, type)}
                       size="small"
                       variant="outlined"
                       placeholder={label}

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Form from './Form';
 import InputFile from './InputFile';
+import RequestService from '../../services/RequestService';
+import LoadingService from '../../services/LoadingSerivce';
+import ErrorMessage from '../ErrorMessage';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,19 +47,43 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const RequestForm = ({ show, onCancel }) => {
+const RequestForm = ({ show, onCancel, addLoadingItem, removeLoadingItem }) => {
     if (!show) return null;
+    const [error, setError] = useState('');
+    const formData = RequestService.getBaseModel();
+    const onModelChange = (prop, value) => {
+        formData[prop] = value;
+    };
+
+    const validateAndSave = async () => {
+        let id = null;
+        const isValid = RequestService.validate(formData);
+        if (isValid) {
+            try {
+                id = addLoadingItem();
+               await RequestService.save(formData);
+            } catch (ex) {
+                setError('Aconteceu um erro ao salvar os dados, tente novamente mais tarde');
+            } finally {
+                removeLoadingItem(`${id}`);
+            }
+        } else {
+            setError('Existem campos obrigatórios que não foram preenchidos');
+        }
+    };
+
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <div className={classes.title}>Adicionar despesa</div>
+            <ErrorMessage opened={!!error} text={error} />
             <div className={classes.container}>
-                <InputFile />
-                <Form />
+                <InputFile onChange={onModelChange} />
+                <Form onChange={onModelChange} />
             </div>
             <div className={classes.actions}>
                 <button onClick={onCancel} className={classes.cancel} type="button">Cancelar</button>
-                <button className={classes.save} type="button">Salvar</button>
+                <button onClick={validateAndSave} className={classes.save} type="button">Salvar</button>
             </div>
         </div>
     );
@@ -64,10 +92,17 @@ const RequestForm = ({ show, onCancel }) => {
 RequestForm.propTypes = {
     show: PropTypes.bool,
     onCancel: PropTypes.func.isRequired,
+    addLoadingItem: PropTypes.func.isRequired,
+    removeLoadingItem: PropTypes.func.isRequired,
 };
 
 RequestForm.defaultProps = {
     show: false,
 };
 
-export default RequestForm;
+const mapDispatchToProps = (dispatch) => ({
+    addLoadingItem: () => dispatch(LoadingService.addLoadingItem()),
+    removeLoadingItem: (id) => dispatch(LoadingService.removeLoadingItem(id)),
+});
+
+export default connect(null, mapDispatchToProps)(RequestForm);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { FaTrashAlt, FaFilter } from 'react-icons/fa';
 
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         minHeight: 20,
+        height: 32,
     },
     icon: {
         color: '#d0d3d6',
@@ -44,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const InputFile = () => {
+const InputFile = ({ onChange }) => {
     const [fileName, setFileName] = useState();
     const inputFileRef = React.createRef();
     const classes = useStyles();
@@ -61,6 +63,7 @@ const InputFile = () => {
         const acceptedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
         if (acceptedTypes.includes(file.type)) {
             setFileName(file.name);
+            onChange('resourceUrl', file);
         } else {
             resetInputFile();
         }
@@ -92,6 +95,10 @@ const InputFile = () => {
             </div>
         </div>
     );
+};
+
+InputFile.propTypes = {
+    onChange: PropTypes.func.isRequired,
 };
 
 export default InputFile;

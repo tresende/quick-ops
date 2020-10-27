@@ -31,7 +31,7 @@
         "react/jsx-props-no-spreading": 0,
         "no-mixed-spaces-and-tabs": 0,
         "import/no-named-as-default": 0,
-        "jsx-a11y/media-has-caption": 0,
+        "no-restricted-syntax": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "jsx-a11y/click-events-have-key-events": 0,
         "object-curly-newline": 0,
