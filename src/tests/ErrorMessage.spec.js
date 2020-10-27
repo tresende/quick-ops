@@ -28,7 +28,6 @@ describe('Teste de renderização do componente <ErrorMessage>', () => {
                 <ErrorMessage opened={true} text="TEXT" />
             </Layout>
         );
-        //console.log(wrapper.find('ErrorMessage').dive().debug());
         expect(wrapper.find('ErrorMessage').dive().text()).toMatch(/TEXT/)
     });
 });
