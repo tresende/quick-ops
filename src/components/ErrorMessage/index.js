@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgb(253, 236, 234)',
         padding: 8,
         marginBottom: 8,
-        borderRadius: theme.layout.defaultBorderRadius,
+        borderRadius: theme?.layout?.defaultBorderRadius,
         border: '1px solid rgb(97, 26, 21)',
     },
 }));
