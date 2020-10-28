@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { getTranslate, formatDate } from '../../services/Util';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,35 +36,35 @@ const Info = ({ header }) => {
     return (
         <div className={classes.root}>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Nome</span>
+                <span className={classes.key}><TextTranslated code="name" /></span>
                 <span className={classes.value}>{header?.collaborator?.name}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Email</span>
+                <span className={classes.key}><TextTranslated code="email" /></span>
                 <span className={classes.value}>{header?.collaborator?.email}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Justificativa</span>
+                <span className={classes.key}><TextTranslated code="justification" /></span>
                 <span className={classes.value}>{header.justification}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Finalidade</span>
+                <span className={classes.key}><TextTranslated code="purpose" /></span>
                 <span className={classes.value}>{getTranslate(header.purpose)}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Projeto</span>
+                <span className={classes.key}><TextTranslated code="project" /></span>
                 <span className={classes.value}>{header?.project?.title}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Data</span>
+                <span className={classes.key}><TextTranslated code="date" /></span>
                 <span className={classes.value}>{formatDate(header?.accountabilityExtraInfo?.eventDate)}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Quantidade de Pessoas</span>
+                <span className={classes.key}><TextTranslated code="amountOfPeople" /></span>
                 <span className={classes.value}>{formatAmountOfPeople(header?.accountabilityExtraInfo?.amountOfPeople)}</span>
             </div>
             <div className={classes.keyValye}>
-                <span className={classes.key}>Incluir Café da Manha</span>
+                <span className={classes.key}><TextTranslated code="budgetForBreakfast" /></span>
                 <span className={classes.value}>{formatAmountOfPeople(header?.accountabilityExtraInfo?.budgetForBreakfast)}</span>
             </div>
         </div>

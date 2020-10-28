@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core';
 import { formatCurrency } from '../../services/Util';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,20 +47,30 @@ const Summary = ({ data }) => {
     const classes = useStyles();
     return (
         <div>
-            <span className={classes.header}>Extrato</span>
+            <span className={classes.header}>
+                <TextTranslated code="suammryLabel" />
+            </span>
             <hr className={classes.hr} />
             <Table size="small" aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.tableHeader}>Descrição</TableCell>
-                        <TableCell className={classes.tableHeader}>Valor</TableCell>
+                        <TableCell className={classes.tableHeader}>
+                            <TextTranslated code="description" />
+                        </TableCell>
+                        <TableCell className={classes.tableHeader}>
+                            <TextTranslated code="value" />
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow>
                         <TableCell className={classes.cell} scope="row">
-                            <div className={classes.type}>Despesas declaradas</div>
-                            <div className={classes.description}>Despesas declaradas pelo trooper</div>
+                            <div className={classes.type}>
+                                <TextTranslated code="declaredTitle" />
+                            </div>
+                            <div className={classes.description}>
+                                <TextTranslated code="declaredTitleByTrooper" />
+                            </div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
                             <div className={classes.type}>{formatCurrency(data.declared, data.currency.code)}</div>
@@ -67,17 +78,25 @@ const Summary = ({ data }) => {
                     </TableRow>
                     <TableRow>
                         <TableCell className={classes.cell} scope="row">
-                            <div className={classes.type}>Despesas aprovadas</div>
-                            <div className={classes.description}>Despesas declaradas pelo financeiro</div>
+                            <div className={classes.type}>
+                                <TextTranslated code="approvedExpense" />
+                            </div>
+                            <div className={classes.description}>
+                                <TextTranslated code="approvedExpenseByFin" />
+                            </div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
-                        <div className={classes.type}>{formatCurrency(data.approved, data.currency.code)}</div>
+                            <div className={classes.type}>{formatCurrency(data.approved, data.currency.code)}</div>
                         </TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell className={classes.cell} scope="row">
-                            <div className={classes.type}>Despesas realizado</div>
-                            <div className={classes.description}>Despesas realizado pelo financeiro</div>
+                            <div className={classes.type}>
+                                <TextTranslated code="realizedExpense" />
+                            </div>
+                            <div className={classes.description}>
+                                <TextTranslated code="realizedExpenseByFin" />
+                            </div>
                         </TableCell>
                         <TableCell className={classes.cell} align="right">
                             <div className={classes.type}>{formatCurrency(data.received, data.currency.code)}</div>

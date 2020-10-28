@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { formatCurrency } from '../../services/Util';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -26,7 +27,9 @@ const Value = ({ data }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div className={classes.title}>SALDO</div>
+            <div className={classes.title}>
+                <TextTranslated code="balance" />
+            </div>
             <div className={classes.subTitle}>{formatCurrency(data.received - data.declared, data.currency.code)}</div>
         </div>
     );

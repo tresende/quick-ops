@@ -48,11 +48,12 @@ const Status = ({ request }) => {
     if (!request.status) { return null; }
 
     const statusClass = [classes.badge, classes[request.status]].join(' ');
+    const label = getTranslate('status');
 
     return (
         <div className={classes.root}>
             <div>
-                <div className={classes.title}>Status</div>
+                <div className={classes.title}>{label}</div>
                 <div className={statusClass}>{getTranslate(request.status)}</div>
             </div>
         </div>

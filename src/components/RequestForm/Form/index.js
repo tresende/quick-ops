@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Editor from './Editor';
+import { getTranslate } from '../../../services/Util';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -30,13 +31,13 @@ const Form = ({ onChange }) => {
             {
                 amount && (
                     <>
-                        <Editor onChange={(value) => onChange('amountSpent', value)} type="number" size={56} label="Valor total da nota/cupom" />
-                        <Editor onChange={(value) => onChange('amountTotal', value)} type="number" size={56} label="Valor a ser considerado" />
+                        <Editor onChange={(value) => onChange('amountSpent', value)} type="number" size={56} label={getTranslate('amountSpentLbl')} />
+                        <Editor onChange={(value) => onChange('amountTotal', value)} type="number" size={56} label={getTranslate('amountTotalLbl')} />
                     </>
                 )
             }
-            <Editor onChange={(value) => onChange('notes', value)} size={56} label="Descrição da despesa *" />
-            <Editor onChange={(value) => onChange('cardDate', value)} type="date" size={56} label="Data do Comprovante *" />
+            <Editor onChange={(value) => onChange('notes', value)} size={56} label={getTranslate('notesLbl')} />
+            <Editor onChange={(value) => onChange('cardDate', value)} type="date" size={56} label={getTranslate('cardDateLbl')} />
         </div>
     );
 };

@@ -10,14 +10,12 @@
         "node": true
     },
     "extends": "airbnb",
-    "overrides": [
-        {
-          "files": ["test/*.js"],
-          "rules": {
+    "overrides": [{
+        "files": ["test/*.js"],
+        "rules": {
             "require-jsdoc": "off"
-          }
         }
-      ],
+    }],
     "rules": {
         "indent": [0, "tab"],
         "react/jsx-indent": 0,
@@ -28,6 +26,7 @@
         "react/require-default-props": 0,
         "react/no-array-index-key": 0,
         "no-tabs": 0,
+        "react/jsx-no-bind": 0,
         "react/jsx-props-no-spreading": 0,
         "no-mixed-spaces-and-tabs": 0,
         "import/no-named-as-default": 0,

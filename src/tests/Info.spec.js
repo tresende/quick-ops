@@ -12,7 +12,7 @@ const shallowWrapper = (request) => shallow(
 describe('Component rendering test <Info>', () => {
     it('Should render Compoenent', () => {
         const wrapper = shallowWrapper({});
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
         expect(wrapper.find('div')).toHaveLength(5);
     });
 });

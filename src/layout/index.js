@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import Loading from '../components/Loading';
 import Breadcrumb from '../components/Breadcrumb';
+import ErrorBoundary from '../components/ErrorBoundary';
 import themeConfig from './themeConfig';
 import 'typeface-nunito-sans';
 
@@ -34,14 +35,16 @@ const Layout = (props) => {
         <ThemeProvider theme={mainTheme}>
             <CssBaseline />
             <Loading />
-            <div className={classes.root}>
-                <Header />
-                <Menu />
-                <main className={classes.content}>
-                    <Breadcrumb />
-                    {props.children}
-                </main>
-            </div>
+            <ErrorBoundary>
+                <div className={classes.root}>
+                    <Header />
+                    <Menu />
+                    <main className={classes.content}>
+                        <Breadcrumb />
+                        {props.children}
+                    </main>
+                </div>
+            </ErrorBoundary>
         </ThemeProvider>
     );
 };

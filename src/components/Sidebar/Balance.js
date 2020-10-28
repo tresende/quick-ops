@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import { formatCurrency } from '../../services/Util';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +48,7 @@ const Balance = ({ data }) => {
             <div className={classes.container}>
                 <div className={classes.icon}><FaArrowUp color="#d0d3d6" size="12" /></div>
                 <div>
-                    <div className={classes.title}>Gastou</div>
+                    <div className={classes.title}><TextTranslated code="declared" /></div>
                     <div className={classes.value}>{formatCurrency(data.declared, data.currency.code)}</div>
                 </div>
             </div>
@@ -55,7 +56,7 @@ const Balance = ({ data }) => {
             <div className={classes.container}>
                 <div className={classes.icon}><FaArrowDown color="#d0d3d6" size="12" /></div>
                 <div>
-                    <div className={classes.title}>Recebeu</div>
+                    <div className={classes.title}><TextTranslated code="received" /></div>
                     <div className={classes.value}>{formatCurrency(data.received, data.currency.code)}</div>
                 </div>
             </div>

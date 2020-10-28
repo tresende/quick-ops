@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Info from './Info';
 import TimelineService from '../../services/TimelineService';
+import { getTranslate } from '../../services/Util';
 
 const Type = ({ request }) => {
     const text = TimelineService.formatTypeMessage(request);
-    return (<Info title="Tipo" subtitle={text} text={request.notes} />);
+    const label = getTranslate('type');
+    return (<Info title={label} subtitle={text} text={request.notes} />);
 };
 
 Type.propTypes = {

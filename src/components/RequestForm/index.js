@@ -7,6 +7,7 @@ import InputFile from './InputFile';
 import RequestService from '../../services/RequestService';
 import LoadingService from '../../services/LoadingSerivce';
 import ErrorMessage from '../ErrorMessage';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -75,15 +76,19 @@ const RequestForm = ({ show, onCancel, addLoadingItem, removeLoadingItem }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <div className={classes.title}>Adicionar despesa</div>
+            <div className={classes.title}><TextTranslated code="addRequest" /></div>
             <ErrorMessage opened={!!error} text={error} />
             <div className={classes.container}>
                 <InputFile onChange={onModelChange} />
                 <Form onChange={onModelChange} />
             </div>
             <div className={classes.actions}>
-                <button data-test="cancel" onClick={onCancel} className={classes.cancel} type="button">Cancelar</button>
-                <button data-test="save" onClick={validateAndSave} className={classes.save} type="button">Salvar</button>
+                <button data-test="cancel" onClick={onCancel} className={classes.cancel} type="button">
+                    <TextTranslated code="cancel" />
+                </button>
+                <button data-test="save" onClick={validateAndSave} className={classes.save} type="button">
+                    <TextTranslated code="save" />
+                </button>
             </div>
         </div>
     );

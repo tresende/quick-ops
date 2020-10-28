@@ -20,7 +20,7 @@ const formatCurrency = (number, currency) => {
     }).format(number);
 };
 
-const getTranslate = (key) => ptBR[key];
+const getTranslate = (key) => ptBR[key] || key;
 
 const generateUniqueId = () => Math.random().toString(36).substr(2, 9);
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import { getTranslate } from '../../services/Util';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,16 +33,17 @@ const Analyst = ({ header }) => {
     const classes = useStyles();
 
     const formatCostCenter = ({ percentage, name }) => `${percentage}-${name}`;
-
+    const assignAnalystLabel = getTranslate('assignAnalyst');
+    const costCenterLabel = getTranslate('costCenter');
     return (
         <div className={classes.root}>
             <div>
                 <div className={classes.formContainer}>
-                    <div className={classes.title}>Atribuir Analista</div>
-                    <input className={classes.assingAnalyst} type="text" placeholder="Atribuir Analista" />
+                    <div className={classes.title}>{assignAnalystLabel}</div>
+                    <input className={classes.assingAnalyst} type="text" placeholder={assignAnalystLabel} />
                 </div>
                 <div className={classes.formContainer}>
-                    <div className={classes.title}>Centro Custo</div>
+                    <div className={classes.title}>{costCenterLabel}</div>
                     {header?.costCenters?.map((costCenter) => (
                         <div className={classes.text} key={costCenter.id}>{formatCostCenter(costCenter)}</div>
                     ))

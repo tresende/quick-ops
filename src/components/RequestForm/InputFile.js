@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { FaTrashAlt, FaFilter } from 'react-icons/fa';
+import TextTranslated from '../TextTranslated';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -82,15 +83,15 @@ const InputFile = ({ onChange }) => {
     return (
         <div className={classes.root}>
             <div className={classes.formContainer}>
-                <div className={classes.title}>Envie o comprovante</div>
-                <small className={classes.subtitle}>Você pode inserir nos formatos PNG, JPG, ou PDF. Tamanho máx 10MB</small>
+                <div className={classes.title}><TextTranslated code="sendFile" /></div>
+                <small className={classes.subtitle}><TextTranslated code="fileTypes" /></small>
                 <input accept=".jpg,.jpeg,.png" onChange={onInputFileChange} ref={inputFileRef} className={classes.inputFile} type="file" />
                 <div data-test="file-name" className={classes.textIconContainer}>
                     {renderFileName()}
                 </div>
                 <button type="button" onClick={openInputFile} className={classes.button}>
                     <FaFilter className={classes.icon} onClick={resetInputFile} size="10" />
-                    Escolher Arquivo
+                    <TextTranslated code="chooseFile" />
                 </button>
             </div>
         </div>
