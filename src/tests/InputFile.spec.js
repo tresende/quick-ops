@@ -8,11 +8,11 @@ const wrapper = mount(
     <InputFile onChange={() => { }} />
 );
 
-describe('Teste de renderização do componente <InputFile>', () => {
-    it('Inicializar sem do nome do arquivo', () => {
+describe('Component rendering test <InputFile>', () => {
+    it('Should initialize file component wihthout file name', () => {
         expect(wrapper.find('[data-test="file-name"] span').length).toEqual(0);
     });
-    it('Inicializar com nome do arquivo', () => {
+    it('Should initialize file component with file name', () => {
         const file = new File([""], "file.png", {type: 'image/png'})
         wrapper.find('input').simulate('change', { target: { files: [file] } });
         expect(wrapper.find('[data-test="file-name"] span').length).toEqual(1);

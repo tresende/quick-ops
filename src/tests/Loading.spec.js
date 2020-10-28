@@ -7,9 +7,9 @@ const shallowWrapper = (store) => shallow(
     <Loading store={store} />
 );
 
-describe('Teste de renderização do componente <Loading>', () => {
+describe('Component rendering test <Loading>', () => {
 
-    it('Deve renderizar a estrutura com o <FaReceipt>', () => {
+    it('should render the structure with <FaReceipt>', () => {
         const store = setup({
             loadingReducer: {
                 loadingStack: ['1']
@@ -20,7 +20,7 @@ describe('Teste de renderização do componente <Loading>', () => {
         expect(element.find('div img')).toHaveLength(1);
     });
 
-    it('Não Deve renderizar o loading sem nada na pilja', () => {
+    it('Should initialize null component', () => {
         const store = setup();
         const wrapper = shallowWrapper(store);
         const element = wrapper.dive().dive();

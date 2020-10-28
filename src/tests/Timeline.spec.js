@@ -17,8 +17,8 @@ const wrapper = mount(
     <Timeline store={store} />
 );
 
-describe('Teste de renderização do componente <Timeline>', () => {
-    it('Deve apenas um Fragment caso não tenha dados', () => {
+describe('Component rendering test <Timeline>', () => {
+    it('Should render only fragment when no data', () => {
         expect(wrapper.find('RequestInfo')).toHaveLength(2);
     });
 });

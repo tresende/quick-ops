@@ -8,11 +8,11 @@ const wrapper = shallow(
     <AddRequestButton onClick={()=>{}} store={store} />
 );
 
-describe('Teste de renderização do componente <AddRequestButton>', () => {
-    it('Deve renderizar a estrutura com o <span>', () => {
+describe('Component rendering test <AddRequestButton>', () => {
+    it('should render structure with <span>', () => {
         expect(wrapper.find('span')).toHaveLength(1);
     });
-    it('Deve renderizar a estrutura com o <FaReceipt>', () => {
+    it('should render structure with <FaReceipt>', () => {
         expect(wrapper.find('FaReceipt')).toHaveLength(1);
     });
 });

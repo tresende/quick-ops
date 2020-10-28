@@ -9,12 +9,12 @@ const shallowWrapper = (request) => shallow(
     <Observation request={request} />
 );
 
-describe('Teste de renderização do componente <Observation>', () => {
-    it('Deve renderizar null com parametro notes nulo', () => {
+describe('Component rendering test <Observation>', () => {
+    it('Should render null component when parameter "notes" is null', () => {
         const wrapper = shallowWrapper({});
         expect(wrapper.type()).toEqual(null)
     });
-    it('Deve renderizar <Info> com parametro notes com valor', () => {
+    it('Should <Info> render when parameter "notes" as value', () => {
         const wrapper = shallowWrapper({notes: 'a'});
         expect(wrapper.find('Info')).toHaveLength(1);
     });

@@ -6,28 +6,28 @@ import RequestService from '../services/RequestService';
 
 const store = setup();
 
-describe('Teste de renderização do componente <RequestForm>', () => {
-    it('Não deve aparecer se não enviar o parametro show', () => {
+describe('Component rendering test <RequestForm>', () => {
+    it('Should render null component when parameter "show" is null', () => {
         const wrapper = shallow(
             <RequestForm store={store} onCancel={() => { }} />
         );
         expect(wrapper.dive().type()).toEqual(null);
     });
 
-    it('Não deve aparecer se enviar o parametro show=false', () => {
+    it('Should render null component when parameter "show" is false', () => {
         const wrapper = shallow(
             <RequestForm store={store} onCancel={() => { }} />
         );
         expect(wrapper.dive().type()).toEqual(null);
     });
-    it('Deve montrar uma estrutura com 4 div se show=true', () => {
+    it('Should render 4 divs in component when parameter "show" is true', () => {
         const wrapper = shallow(
             <RequestForm show store={store} onCancel={() => { }} />
         );
         expect(wrapper.dive().find('div')).toHaveLength(4);
     });
 
-    it('Deve chamar o callback se clicar em cancelar', () => {
+    it('Should call callback null when click in cancel button', () => {
         const onCancel = jest.fn();
         const wrapper = shallow(
             <RequestForm show store={store} onCancel={onCancel} />
@@ -36,7 +36,7 @@ describe('Teste de renderização do componente <RequestForm>', () => {
         expect(onCancel).toHaveBeenCalledTimes(1);
     });
 
-    it('Deve chamar o service.save se clicar em salvar com o resultado válido', () => {
+    it('Should call o service.save when click in save button with a valid form', () => {
         RequestService.validate = jest.fn();
         RequestService.validate.mockReturnValueOnce(true);
         const wrapper = shallow(

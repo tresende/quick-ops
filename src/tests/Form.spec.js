@@ -8,7 +8,7 @@ const wrapper = mount(
     <Form onChange={() => { }} />
 );
 
-describe('Teste de renderização do componente <Form>', () => {
+describe('Component rendering test <Form>', () => {
     it('Deve renderizar 4 Editores ao abrir vazio', () => {
         expect(wrapper.find('Editor')).toHaveLength(4);
     });

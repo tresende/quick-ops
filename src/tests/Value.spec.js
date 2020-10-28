@@ -9,12 +9,12 @@ const shallowWrapper = (request) => shallow(
     <Value request={request} />
 );
 
-describe('Teste de renderização do componente <Value>', () => {
-    it('Deve renderizar null com parametro amountTotal nulo', () => {
+describe('Component rendering test <Value>', () => {
+    it('Should render null component when parameter "amountTotal" is null', () => {
         const wrapper = shallowWrapper({});
         expect(wrapper.type()).toEqual(null)
     });
-    it('Deve renderizar <Info> com parametro notes com valor', () => {
+    it('Should render <Info> when parameter "notes" has value', () => {
         const wrapper = shallowWrapper({ amountTotal: '10', currencyCode: 'BRL' });
         expect(wrapper.find('Info')).toHaveLength(1);
     });

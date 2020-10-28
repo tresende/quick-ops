@@ -8,23 +8,23 @@ const wrapper = shallow(
     <Home store={store} />
 );
 
-describe('Teste de renderização do componente <Home>', () => {
-    it('Deve renderizar a estrutura com o <Sidebar>', () => {
+describe('Component rendering test <Home>', () => {
+    it('Should render structure with <Sidebar>', () => {
         expect(wrapper.find('Connect(Sidebar)')).toHaveLength(1);
     });
-    it('Deve renderizar a estrutura com o <RequestHeader>', () => {
+    it('Should render structure with <RequestHeader>', () => {
         expect(wrapper.find('Connect(RequestHeader)')).toHaveLength(1);
     });
-    it('Deve renderizar a estrutura com o <AddRequestButton>', () => {
+    it('Should render structure with <AddRequestButton>', () => {
         expect(wrapper.find('AddRequestButton')).toHaveLength(1);
     });
-    it('Deve renderizar a estrutura com o <RequestForm>', () => {
+    it('Should render structure with <RequestForm>', () => {
         expect(wrapper.find('Connect(RequestForm)')).toHaveLength(1);
     });
-    it('Deve renderizar a estrutura com o <Timeline>', () => {
+    it('Should render structure with <Timeline>', () => {
         expect(wrapper.find('Connect(Timeline)')).toHaveLength(1);
     });
-    it('RequestForm deve ser incializado fechado', () => {
+    it('Should initlialize RequestForm closed', () => {
         expect(wrapper.find('Connect(RequestForm)').props().show).toBe(false);
     });
 });

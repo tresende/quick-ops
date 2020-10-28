@@ -6,5 +6,7 @@
     "transport": "transporte",
     "BRL": "Real",
     "USD": "Dolar",
-    "MXN": "Peso Mexicano"
+    "MXN": "Peso Mexicano",
+    "breadcrumbBase": "Dasboard / / QuickOps / ",
+    "breadcrumbCurrent": "Current",
 }

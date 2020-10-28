@@ -9,12 +9,12 @@ const shallowWrapper = (request) => shallow(
     <Summary request={request} />
 );
 
-describe('Teste de renderização do componente <Summary>', () => {
-    it('Deve renderizar null com parametro cardType nulo', () => {
+describe('Component rendering test <Summary>', () => {
+    it('Should render null component when parameter "cardType" is null', () => {
         const wrapper = shallowWrapper({});
         expect(wrapper.type()).toEqual(null)
     });
-    it('Deve renderizar quarto 4 divs com parametro notes com valor', () => {
+    it('Should render 4 divs in component when parameter "cardType" has value', () => {
         const wrapper = shallowWrapper({ cardType: 'EXPENSE' });
         expect(wrapper.find('div')).toHaveLength(4);
     });
