@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#4D676C',
         border: '1px solid #4D676C',
         display: 'flex',
-        borderRadius: theme.layout.defaultBorderRadius,
+        borderRadius: theme?.layout?.defaultBorderRadius,
         height: 32,
         padding: 8,
     },

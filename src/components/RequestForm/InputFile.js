@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid #dfe2df',
         ...theme.mixins.center,
         flexDirection: 'column',
-        borderRadius: theme.layout.defaultBorderRadius,
+        borderRadius: theme?.layout?.defaultBorderRadius,
     },
     button: {
         backgroundColor: 'white',
@@ -58,8 +58,8 @@ const InputFile = ({ onChange }) => {
         setFileName(null);
     };
 
-    const onInputFileChange = () => {
-        const file = inputFileRef.current.files[0];
+    const onInputFileChange = (e) => {
+        const file = e.target.files[0];
         const acceptedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
         if (acceptedTypes.includes(file.type)) {
             setFileName(file.name);
@@ -85,7 +85,7 @@ const InputFile = ({ onChange }) => {
                 <div className={classes.title}>Envie o comprovante</div>
                 <small className={classes.subtitle}>Você pode inserir nos formatos PNG, JPG, ou PDF. Tamanho máx 10MB</small>
                 <input accept=".jpg,.jpeg,.png" onChange={onInputFileChange} ref={inputFileRef} className={classes.inputFile} type="file" />
-                <div className={classes.textIconContainer}>
+                <div data-test="file-name" className={classes.textIconContainer}>
                     {renderFileName()}
                 </div>
                 <button type="button" onClick={openInputFile} className={classes.button}>

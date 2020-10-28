@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'white',
         border: '1px solid #50C2C7',
         color: '#50C2C7',
-        borderRadius: theme.layout.defaultBorderRadius / 2,
+        borderRadius: theme?.layout?.defaultBorderRadius / 2,
         padding: '4px 8px',
     },
     save: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         padding: '4px 8px',
         marginLeft: 8,
-        borderRadius: theme.layout.defaultBorderRadius / 2,
+        borderRadius: theme?.layout?.defaultBorderRadius / 2,
     },
 }));
 
@@ -82,8 +82,8 @@ const RequestForm = ({ show, onCancel, addLoadingItem, removeLoadingItem }) => {
                 <Form onChange={onModelChange} />
             </div>
             <div className={classes.actions}>
-                <button onClick={onCancel} className={classes.cancel} type="button">Cancelar</button>
-                <button onClick={validateAndSave} className={classes.save} type="button">Salvar</button>
+                <button data-test="cancel" onClick={onCancel} className={classes.cancel} type="button">Cancelar</button>
+                <button data-test="save" onClick={validateAndSave} className={classes.save} type="button">Salvar</button>
             </div>
         </div>
     );
