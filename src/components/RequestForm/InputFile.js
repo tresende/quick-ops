@@ -59,10 +59,12 @@ const InputFile = ({ onChange }) => {
         setFileName(null);
     };
 
+    const isLessThan10mb = (file) => (file.size / 1024 / 1024) < 10;
+
     const onInputFileChange = (e) => {
         const file = e.target.files[0];
         const acceptedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-        if (acceptedTypes.includes(file.type)) {
+        if (acceptedTypes.includes(file.type) && isLessThan10mb(file)) {
             setFileName(file.name);
             onChange('resourceUrl', file);
         } else {
